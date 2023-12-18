@@ -1,12 +1,12 @@
 <div class="card">
     <div class="px-3 pt-4 pb-2">
-        <form method="POST" action="{{route('users.update',$user->id)}}" >
+        <form enctype="multipart/form-data" method="POST" action="{{route('users.update',$user->id)}}" >
             @csrf
             @method('put')
         <div class="d-flex align-items-center justify-content-between">
             <div class="d-flex align-items-center">
                 <img style="width:150px" class="me-3 avatar-sm rounded-circle"
-                     src="" alt="Mario Avatar">
+                     src="{{$user->getImageURL()}}" alt="Mario Avatar">
                 <div>
                         <input name="name" value="{{$user->name}}" type="text"  class="form-control">
                         @error('name')

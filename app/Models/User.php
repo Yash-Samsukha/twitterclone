@@ -51,4 +51,12 @@ class User extends Authenticatable
     public function comments(){
         return $this->hasMany(comment::class)->latest();
     }
+
+    public function getImageURL(){
+        if($this->image)
+        {
+            return url('storage/'. $this->image);
+        }
+        return "https://api.dicebear.com/6.x/fun-emoji/svg?seed={$this->name}";
+    }
 }
